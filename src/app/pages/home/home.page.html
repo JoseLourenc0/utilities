@@ -1,0 +1,17 @@
+<app-header name="Home"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-home-card
+          *ngFor="let tool of tools"
+          [icon]="tool.icon"
+          [title] = "tool.name"
+          [routerLink] = "'../tools/' + tool.url"
+        >
+        </app-home-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
