@@ -4,7 +4,13 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-home-card icon="qr-code-outline" title = "QrCode"></app-home-card>
+        <app-home-card
+          *ngFor="let tool of tools"
+          [icon]="tool.icon"
+          [title] = "tool.name"
+          [routerLink] = "'../tools/' + tool.url"
+        >
+        </app-home-card>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { Clipboard } from '@awesome-cordova-plugins/clipboard/ngx';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { IonicModule } from '@ionic/angular';
   ],
   exports: [
     HeaderComponent
+  ],
+  providers: [
+    Clipboard
   ]
 })
 export class SharedModule { }

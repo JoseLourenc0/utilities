@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  public tools = [
+    {
+      name: 'QrCode',
+      url: 'qrcode',
+      icon: 'qr-code-outline'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {

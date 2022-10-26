@@ -1,0 +1,27 @@
+<app-header name="QR Code"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container" *ngIf="!isScanning">
+
+    <ion-button
+      expand = "block"
+      (click) = 'handleScan()'
+    >
+      SCAN
+    </ion-button>
+
+    Result: {{ content }}
+
+    <ion-button
+      *ngIf = "content"
+      expand = "block"
+      (click) = 'copyContentToClipBoard()'
+      color = "success"
+    >
+      COPY
+    </ion-button>
+
+  </div>
+
+  <div *ngIf="isScanning" class="square-mark"></div>
+</ion-content>
