@@ -53,11 +53,16 @@
 
     <ion-card-content>
       <pre>
-        {{ requestResult }}
+        {{ '\n' + requestResult }}
       </pre>
     </ion-card-content>
 
     <ion-ripple-effect></ion-ripple-effect>
   </ion-card>
+
+  <ion-button class="action-button" id="body-action-button">
+    <ion-icon slot="icon-only" name="newspaper-outline"></ion-icon>
+  </ion-button>
+  <app-modal-req-field trigger="body-action-button" title="Body"></app-modal-req-field>
 
 </ion-content>

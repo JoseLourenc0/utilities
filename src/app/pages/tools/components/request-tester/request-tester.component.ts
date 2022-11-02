@@ -84,7 +84,7 @@ export class RequestTesterComponent implements OnInit {
     if(data.error && data.error.text) {
       this.requestResult = data.error.text;
     } else {
-      this.requestResult = typeof data === 'string' ? data : '\n' + JSON.stringify(data, null, 3);
+      this.requestResult = typeof data === 'string' ? data : JSON.stringify(data, null, 3);
     }
     console.log(data);
   }

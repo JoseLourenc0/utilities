@@ -10,6 +10,7 @@ import { ToolsPage } from './tools.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
 import { RequestTesterComponent } from './components/request-tester/request-tester.component';
+import { ModalReqFieldComponent } from './components/request-tester/components/modal-req-field/modal-req-field.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { RequestTesterComponent } from './components/request-tester/request-test
     ToolsPageRoutingModule,
     SharedModule
   ],
-  declarations: [ToolsPage, QrcodeComponent, RequestTesterComponent]
+  declarations: [ToolsPage, QrcodeComponent, RequestTesterComponent, ModalReqFieldComponent]
 })
 export class ToolsPageModule {}
