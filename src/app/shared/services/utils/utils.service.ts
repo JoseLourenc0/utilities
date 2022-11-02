@@ -31,10 +31,14 @@ export class UtilsService {
     });
   }
 
-  async presentToast(message: string, color: 'success' | 'warning' | 'danger' | 'primary' | 'secondary' | 'tertiary') {
+  async presentToast(
+    message: string,
+    color: 'success' | 'warning' | 'danger' | 'primary' | 'secondary' | 'tertiary' | 'dark',
+    duration?: number
+  ) {
     const toast = await this.toastController.create({
       message,
-      duration: 1500,
+      duration: duration ?? 1500,
       position: 'bottom',
       color
     });

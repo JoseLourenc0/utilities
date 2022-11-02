@@ -52,7 +52,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <pre>
+      <pre (click) = 'copyResponse()'>
         {{ '\n' + requestResult }}
       </pre>
     </ion-card-content>

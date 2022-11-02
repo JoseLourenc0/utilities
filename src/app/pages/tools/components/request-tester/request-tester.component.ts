@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ToastService } from 'src/app/shared/services/template/toast.service';
+import { UtilsService } from 'src/app/shared/services/utils/utils.service';
 
 @Component({
   selector: 'app-request-tester',
@@ -23,10 +23,15 @@ export class RequestTesterComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private toastService: ToastService
+    private utilsService: UtilsService
   ) { }
 
   ngOnInit() {}
+
+  copyResponse() {
+    this.utilsService.copyToNativeClipboard(this.requestResult);
+    this.utilsService.presentToast('Copied Response to Clipboard', 'success');
+  }
 
   sendRequest() {
 
@@ -95,14 +100,14 @@ export class RequestTesterComponent implements OnInit {
       currField = JSON.parse(field);
     } catch (error) {
       currField = {};
-      this.toastService.presentToast('BODY OR HEADER MOUNTED IS NOT A VALID JSON', 'danger', 2000);
+      this.utilsService.presentToast('BODY OR HEADER MOUNTED IS NOT A VALID JSON', 'danger', 2000);
     }
     return currField;
   }
 
   private showRequestTime() {
     const diff = Math.abs(new Date().getTime() - this.requestTime);
-    this.toastService.presentToast(`Request finished after ${ diff } ms`, 'dark', 1500);
+    this.utilsService.presentToast(`Request finished after ${ diff } ms`, 'dark', 1500);
     this.requestTime = 0;
     return true;
   }
