@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { UtilsService } from 'src/app/shared/services/utils/utils.service';
@@ -8,7 +8,7 @@ import { UtilsService } from 'src/app/shared/services/utils/utils.service';
   templateUrl: './qrcode.component.html',
   styleUrls: ['./qrcode.component.scss'],
 })
-export class QrcodeComponent implements OnInit {
+export class QrcodeComponent implements OnInit, OnDestroy {
 
   public content = '';
   public isScanning = false;
@@ -43,6 +43,10 @@ export class QrcodeComponent implements OnInit {
   copyContentToClipBoard() {
     this.utilsService.copyToNativeClipboard(this.content);
     this.utilsService.presentToast('Copied text to Clipboard', 'success');
+  }
+
+  ngOnDestroy() {
+    document.querySelector('body').classList.remove('scanner-active');
   }
 
 }
