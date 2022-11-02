@@ -1,0 +1,63 @@
+<app-header name="QR Code"></app-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Configuration</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">URL</ion-label>
+          <ion-input [(ngModel)] = 'requestConfig.url' placeholder="Enter request url"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-select [(ngModel)] = 'requestConfig.method' interface="popover" placeholder="Method">
+            <ion-select-option value="GET">GET</ion-select-option>
+            <ion-select-option value="POST">POST</ion-select-option>
+            <ion-select-option value="PUT">PUT</ion-select-option>
+            <ion-select-option value="PATCH">PATCH</ion-select-option>
+            <ion-select-option value="DELETE">DELETE</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Headers</ion-label>
+          <ion-textarea [(ngModel)] = 'requestConfig.headers' placeholder="Headers" [autoGrow]="true">
+          </ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Body</ion-label>
+          <ion-textarea [(ngModel)] = 'requestConfig.body' placeholder="Body" [autoGrow]="true">
+          </ion-textarea>
+        </ion-item>
+
+        <ion-button (click) = 'sendRequest()' expand="block" [disabled]="!requestConfig.url || !requestConfig.method">SEND</ion-button>
+
+      </ion-list>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card class="ion-activatable">
+    <ion-card-header>
+      <ion-card-title>Result</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <pre>
+        {{ requestResult }}
+      </pre>
+    </ion-card-content>
+
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-card>
+
+</ion-content>

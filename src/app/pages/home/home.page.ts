@@ -12,7 +12,12 @@ export class HomePage implements OnInit {
       name: 'QrCode',
       url: 'qrcode',
       icon: 'qr-code-outline'
-    }
+    },
+    {
+      name: 'Request Tester',
+      url: 'request-tester',
+      icon: 'cube-outline'
+    },
   ];
 
   constructor() { }
